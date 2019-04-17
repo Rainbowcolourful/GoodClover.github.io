@@ -1,5 +1,5 @@
 function setup() {
-    createCanvas(1000,1000)
+    createCanvas(600,600)
     midX = width/2
     midY = height/2
 }
