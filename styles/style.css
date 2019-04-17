@@ -1,0 +1,12 @@
+body {
+	background-color: darkgray;
+}
+
+h1 {
+	border-width: 5px;
+	border-radius: 5px;
+}
+
+a {
+	text-decoration: none;
+}
