@@ -3,6 +3,11 @@ function setup(){
 }
 
 function draw() {
+    if (keyIsPressed(38)) {
+        fs = fullscreen()
+        fullscreen(!fs)
+    }
+
     background(150)
     textSize(40)
     textAlign(CENTER)

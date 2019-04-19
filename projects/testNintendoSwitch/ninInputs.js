@@ -1,0 +1,5 @@
+
+L_UP = 38
+L_DOWN = 40
+L_LEFT = 37
+L_RIGHT = 39
