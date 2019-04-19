@@ -32,8 +32,9 @@ function setup() {
 	rightBat = new Obj(width-50,height/2-50,  20,100)
 	leftScore = 0
 	rightScore = 0
+    ballStartSpeed = 7
 	ball = new Obj(width/2,height/2, 20,20)
-	ball.applyForce(createVector(random([-10,10]),0))
+	ball.applyForce(createVector(random([-ballStartSpeed,ballStartSpeed]),0))
 }
 
 function draw() {
@@ -61,23 +62,19 @@ function draw() {
 
 	if (ball.pos.x < 0) {
 		rightScore += 1
-		xV = ball.vel.x
         ball = new Obj(width/2,height/2, 20,20)
-        ball.vel.x = xV
-        ball.vel.y = random(-2,2)
+        ball.applyForce(createVector(-ballStartSpeed, random(-2,2)))
 	} else if (ball.pos.x+ball.size.x > width) {
 		leftScore += 1
-        xV = ball.vel.x
         ball = new Obj(width/2,height/2, 20,20)
-        ball.vel.x = xV
-        ball.vel.y = random(-2,2)
+        ball.applyForce(createVector(ballStartSpeed, random(-2,2)))
 	}
 
     if (leftBat.collidePoint( ball.pos )) {
-        ball.vel.x *= -1
+        ball.vel.x *= -1.025
         ball.vel.y = ((ball.pos.y+ball.size.y/2) - (leftBat.pos.y+leftBat.size.y/2)) /12
     } else if (rightBat.collidePoint( ball.pos )) {
-        ball.vel.x *= -1
+        ball.vel.x *= -1.025
         ball.vel.y = ((ball.pos.y+ball.size.y/2) - (rightBat.pos.y+rightBat.size.y/2)) /12
     }
 
