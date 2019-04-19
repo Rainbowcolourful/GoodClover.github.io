@@ -71,10 +71,13 @@ function draw() {
         //strokeWeight( (points[i].x-topSpinner.x+topSpinner.rad)/3 )
 
         //point(points[i].x, points[i].y)
-        
+
         //Lines to fill in gaps:
         if (i > 0) {
             line(points[i].x, points[i].y, points[i-1].x, points[i-1].y)
         }
     }
+    stroke(255,150,150)
+    strokeWeight(10)
+    point(points[0].x, points[0].y)
 }
