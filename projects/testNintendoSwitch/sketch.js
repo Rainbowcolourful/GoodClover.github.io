@@ -28,5 +28,7 @@ function draw() {
 
     text(keyCode, width/2, height/2)
 
+    stroke(255)
+    strokeWeight(20)
     point(pos.x, pos.y)
 }
