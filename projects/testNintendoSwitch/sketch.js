@@ -3,10 +3,10 @@ function setup(){
 }
 
 function draw() {
-    if (keyIsPressed(38)) {
-        fs = fullscreen()
-        fullscreen(!fs)
-    }
+    //if (keyIsPressed(38)) {
+    //    fs = fullscreen()
+    //    fullscreen(!fs)
+    //}
 
     background(150)
     textSize(40)
