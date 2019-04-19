@@ -69,10 +69,12 @@ function draw() {
     for (i in points) {
         //Cool size change:
         //strokeWeight( (points[i].x-topSpinner.x+topSpinner.rad)/3 )
-        point(points[i].x, points[i].y)
+
+        //point(points[i].x, points[i].y)
+        
         //Lines to fill in gaps:
-        //if (i > 0) {
-            //line(points[i].x, points[i].y, points[i-1].x, points[i-1].y)
-        //}
+        if (i > 0) {
+            line(points[i].x, points[i].y, points[i-1].x, points[i-1].y)
+        }
     }
 }
