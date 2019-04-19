@@ -10,14 +10,14 @@ function setup(){
 function draw() {
     background(150)
 
-    if (keyPressed(L_UP)) {
+    if (keyIsDown(L_UP)) {
         pos.y -= 1
-    } else if (keyPressed(L_DOWN)) {
+    } else if (keyIsDown(L_DOWN)) {
         pos.y += 1
     }
-    if (keyPressed(L_LEFT)) {
+    if (keyIsDown(L_LEFT)) {
         pos.x -= 1
-    } else if (keyPressed(L_RIGHT)) {
+    } else if (keyIsDown(L_RIGHT)) {
         pos.x += 1
     }
 
@@ -27,8 +27,6 @@ function draw() {
     textAlign(CENTER)
 
     text(keyCode, width/2, height/2)
-
-
 
     point(pos.x, pos.y)
 }
