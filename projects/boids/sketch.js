@@ -80,6 +80,7 @@ function setup() {
 }
 
 function draw() {
+	cursor("none")
 	mouseXVel = mouseX-mouseXPrev
 	mouseYVel = mouseY-mouseYPrev
 	background(150)
