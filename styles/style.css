@@ -22,7 +22,8 @@ h2 {
 	text-align: center;
 }
 
-a {
+a, button {
+    border-style: none;
 	border-width: 1px;
 	border-radius: 5px;
 	text-align: center;
@@ -34,7 +35,7 @@ a {
 	transition-timing-function: cubic-bezier(0.81, 0.32, 0.49, 0.59);
 }
 
-a:hover {
+a:hover, button:hover {
 	background-color: gray;
 	color: lightblue;
 	padding: 4px;
