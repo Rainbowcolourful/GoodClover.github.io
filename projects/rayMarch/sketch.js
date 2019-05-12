@@ -71,7 +71,9 @@ function draw() {
             point(mouseX+currX,mouseY+currY)
         }
     }
+    noFill()
     stroke(0,0,255)
+    strokeWeight(10)
     point(mouseX, mouseY)
 }
 
