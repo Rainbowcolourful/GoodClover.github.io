@@ -44,7 +44,7 @@ function draw() {
         currRad = width-mouseX
         currX = 0
         while (currRad > 1 && mouseX+currX < width) {
-            currRad = width
+            currRad = width-(mouseX+currX)
             for (obj of scene) {
                 temp = obj.dista(mouseX+currX, mouseY+currY)
                 if (temp < currRad) {
@@ -59,8 +59,6 @@ function draw() {
             }
             currX += currRad
         }
-        if (mouseX+currX > width) { currX = width-mouseX}
-        else if (mouseX+currX < 0) { currX = 0}
         noFill()
         stroke(255)
         strokeWeight(10)
