@@ -28,6 +28,7 @@ function setup() {
     sight = height/3
     scene = []
     drawSel = 0
+    drawMode = false
 }
 
 function draw() {
@@ -51,18 +52,24 @@ function draw() {
                     currRad = temp
                 }
             }
-            if (drawSel == currY) {
-                noFill()
+            if (drawSel == currY || drawMode) {
+                if (drawMode) {
+                    fill(220)
+                } else {
+                    noFill()
+                }
                 stroke(220)
                 strokeWeight(2)
                 circle(mouseX+currX, mouseY+currY, currRad*2)
             }
             currX += currRad
         }
-        noFill()
-        stroke(255)
-        strokeWeight(10)
-        point(mouseX+currX, mouseY+currY)
+        if (!drawMode) {
+            noFill()
+            stroke(255)
+            strokeWeight(10)
+            point(mouseX+currX,mouseY+currY)
+        }
     }
     stroke(0,0,255)
     point(mouseX, mouseY)
@@ -70,4 +77,8 @@ function draw() {
 
 function mousePressed() {
     scene.push(new Circle(mouseX, mouseY, 50))
+}
+
+function keyPressed() {
+    drawMode = !drawMode
 }
