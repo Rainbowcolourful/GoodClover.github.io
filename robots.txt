@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /projects/drawingOnline/server.js
+Disallow: /projects/drawingOnline/node_modules
+Disallow: /projects/drawingOnline/package.json
+Disallow: /projects/drawingOnline/package-lock.json
