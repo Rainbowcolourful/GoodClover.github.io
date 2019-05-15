@@ -13,7 +13,7 @@ function setup() {
     createDiv()
     colourSel = createColorPicker("#ffffff")
 
-    serverIP = "http://5.198.10.93:3000"
+    serverIP = "https://5.198.10.93:3000"
 
     socket = io.connect(serverIP)
     socket.on("mouse", function(data) {
