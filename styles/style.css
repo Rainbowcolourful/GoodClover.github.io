@@ -31,12 +31,12 @@ a, button {
 	background-color: lightblue;
 	color: gray;
 	padding: 2px;
-	transition-duration: 1000ms;
+	transition-duration: 650ms;
 	transition-timing-function: cubic-bezier(0.81, 0.32, 0.49, 0.59);
 }
 
 a:hover, button:hover {
-	background-color: gray;
+	background-color: #919191;
 	color: lightblue;
 	padding: 4px;
 }
