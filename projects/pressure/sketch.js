@@ -11,7 +11,7 @@ function setup() {
     for (x=0; x<gridW; x++) {
         grid.push([])
         for (y=0; y<gridH; y++) {
-            grid[x].push( random(0,255) )
+            grid[x].push( noise(x/10,y/10)*255 )
         }
     }
 }
