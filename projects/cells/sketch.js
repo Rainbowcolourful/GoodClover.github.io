@@ -66,23 +66,18 @@ function setup() {
     angleMode(DEGREES)
     createCanvas(600,600)
     deplete = 0.1
-    splitMin = 45
+    splitMin = 95
     cellImage = loadImage("./cell.png")
     foodImage = loadImage("./food.png")
 
-    dish = []
-    for (i=0; i<10; i++) {
-        dish.push( new Cell(random(width), random(height), random(50,100)) )
-    }
+    dish = [new Cell(random(width), random(height), random(50,100))]
     food = []
 }
 
 function draw() {
     background(150)
 
-    for (i=0; i<1; i++) {
-        food.push( new Food(random(width), random(height), random(10,20)) )
-    }
+    food.push( new Food(random(width), random(height), random(5,10)) )
     for (peice of food) {
         peice.draw()
     }
