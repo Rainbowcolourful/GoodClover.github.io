@@ -17,7 +17,7 @@ class Point {
 	}
     draw() {
         noStroke()
-        fill(80)
+        fill(80,80,80)
         circle(this.pos.x, this.pos.y, this.mass)
 
         var prev = cloth[cloth.indexOf(this)-1]
@@ -48,12 +48,12 @@ class Point {
                 this.vel.mult(0)
                 if (this.pos.x < po.x+ra/2) {
                     this.pos.x = po.x
-                } else {
+                } else if (this.pos.x >= po.x+ra/2) {
                     this.pos.x = po.x+ra
                 }
                 if (this.pos.y < po.y+ra/2) {
                     this.pos.y = po.y
-                } else {
+                } else if (this.pos.y >= po.y+ra/2) {
                     this.pos.y = po.y+ra
                 }
             }
@@ -94,9 +94,9 @@ function setup() {
     cursor("none")
     GRAV = 3
     cloth = []
-    wantDist = 20
-    elast = 4
-    res = 0.4
+    wantDist = 15
+    elast = 3
+    res = 0.6
 	for (i=50; i < width-50; i += wantDist) {
 		cloth.push( new Point(i,0, 10) )
 	}
