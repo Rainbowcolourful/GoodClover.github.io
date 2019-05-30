@@ -32,14 +32,31 @@ class Point {
 
         //Gravity
         this.acc.y += GRAV
+
+        //Resistance
+        this.acc.sub(this.vel.x*res, this.vel.y*res)
+
 		//Physics
 		this.vel.add(this.acc)
 
 		this.acc.mult(0)
 
         //Collision
-        if (this.dist(po) -ra -this.mass <= 0) {
-            this.vel.mult(0)
+        if (this.pos.x > po.x && this.pos.x < po.x+ra) {
+            if (this.pos.y > po.y && this.pos.y < po.y+ra) {
+                console.log("Yeah")
+                this.vel.mult(0)
+                if (this.pos.x < po.x+ra/2) {
+                    this.pos.x = po.x
+                } else {
+                    this.pos.x = po.x+ra
+                }
+                if (this.pos.y < po.y+ra/2) {
+                    this.pos.y = po.y
+                } else {
+                    this.pos.y = po.y+ra
+                }
+            }
         }
 
         //MOVE
@@ -52,35 +69,39 @@ class Point {
             if (this.dist(prev.pos) > wantDist) {
                 this.acc.x += (prev.pos.x-this.pos.x)/elast
                 this.acc.y += (prev.pos.y-this.pos.y)/elast
-                this.pos.x = constrain(this.pos.x, prev.pos.x-wantDist*32, prev.pos.x+wantDist*32)
-                this.pos.y = constrain(this.pos.y, prev.pos.y-wantDist*32, prev.pos.y+wantDist*32)
             }
         }
         if (next) {
             if (this.dist(next.pos) > wantDist) {
                 this.acc.x += (next.pos.x-this.pos.x)/elast
                 this.acc.y += (next.pos.y-this.pos.y)/elast
-                this.pos.x = constrain(this.pos.x, next.pos.x-wantDist*32, next.pos.x+wantDist*32)
-                this.pos.y = constrain(this.pos.y, next.pos.y-wantDist*32, next.pos.y+wantDist*32)
             }
         }
         this.pos.x = constrain(this.pos.x, 0,width)
         this.pos.y = constrain(this.pos.y, 0,height)
+
+        //Pinning
+        if (cloth.indexOf(this) == 0) {
+            this.pos = createVector(50,50)
+        } else if (cloth.indexOf(this) == cloth.length-1) {
+            this.pos = createVector(width-50,50)
+        }
 	}
 }
 
 function setup() {
 	createCanvas(600,600)
     cursor("none")
-    GRAV = 0.5
+    GRAV = 3
     cloth = []
-    wantDist = 15
+    wantDist = 20
     elast = 4
+    res = 0.4
 	for (i=50; i < width-50; i += wantDist) {
 		cloth.push( new Point(i,0, 10) )
 	}
     po = createVector(width/2, height/2)
-    ra = 50
+    ra = 100
 }
 
 function draw() {
@@ -93,9 +114,11 @@ function draw() {
 
     noStroke()
     fill(125)
-    circle(po.x,po.y, ra*2)
+    rect(po.x,po.y, ra,ra)
 
 	stroke(50,200,50)
     strokeWeight(10)
 	point(mouseX, mouseY)
+    po.x = mouseX-ra/2
+    po.y = mouseY-ra/2
 }
