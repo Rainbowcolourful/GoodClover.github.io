@@ -20,9 +20,16 @@ class Grain {
         strokeWeight(this.mass*2)
         noFill()
         point(this.pos.x, this.pos.y)
+        if (textEn) {
+            noStroke()
+            fill(255,0,0)
+            text(sand.indexOf(this), this.pos.x, this.pos.y)
+        }
     }
 	update(sand) {
         this.acc.y += GRAV
+
+        this.acc.add( -this.vel.x*RES, -this.vel.y*RES)
 
         //Collision
         var hasCollid = false
@@ -76,10 +83,12 @@ class Grain {
 function setup() {
 	createCanvas(600,600)
     cursor("none")
-    GRAV = 1
+    GRAV = 9
+    RES = 0.35
     sand = []
     size = 4
     prevMillis = 0
+    textEn = false
 }
 
 function draw() {
@@ -102,4 +111,14 @@ function draw() {
 
 function mousePressed() {
     sand.push(new Grain(mouseX, mouseY, size))
+}
+
+function keyPressed() {
+    if (keyCode == 32) {
+        textEn = !textEn
+    } else if (keyCode == 37) {
+        size--
+    } else if (keyCode == 39) {
+        size++
+    }
 }
