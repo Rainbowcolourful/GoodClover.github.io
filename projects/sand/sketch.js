@@ -27,7 +27,7 @@ class Grain {
         //Collision
         var hasCollid = false
         for (grain of sand) {
-            if (grain != this && this.dist(grain.pos) - this.mass - grain.mass <= 0) {
+            if (this.dist(grain.pos) - this.mass - grain.mass <= 0 && grain != this) {
                 hasCollid = true
                 var mX = (grain.pos.x-this.pos.x -this.mass -grain.mass)/4
                 var mY = (grain.pos.y-this.pos.y -this.mass -grain.mass)/4
@@ -45,8 +45,6 @@ class Grain {
                     this.pos.y += mY
                     grain.pos.y -= mY
                 }
-                //this.vel.mult(-1)
-                //grain.vel.mult(-1)
                 var momX = (this.vel.x*this.mass + grain.vel.x*grain.mass)/4
                 var momY = (this.vel.y*this.mass + grain.vel.y*grain.mass)/4
                 this.acc.x = -momX/this.mass
@@ -78,18 +76,15 @@ class Grain {
 function setup() {
 	createCanvas(600,600)
     cursor("none")
-    GRAV = 0.5
+    GRAV = 1
     sand = []
-    size = 5
-	for (i=0; i < 20; i++) {
-		sand.push( new Grain(random(width), random(0, height/3), size) )
-	}
+    size = 4
     prevMillis = 0
 }
 
 function draw() {
     if (millis()-prevMillis > 125) {
-        sand.push(new Grain(width/2+random(-25,25), 30, size))
+        sand.push(new Grain(width/2+random(-25,25), size, size))
         prevMillis = millis()
     }
 
