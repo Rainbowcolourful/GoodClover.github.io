@@ -23,12 +23,6 @@ class Grain {
     }
 	update(sand) {
         this.acc.y += GRAV
-		//Physics
-		this.vel.add(this.acc)
-
-		this.acc.mult(0)
-
-        this.pos.add(this.vel)
 
         //Collision
         var hasCollid = false
@@ -53,14 +47,21 @@ class Grain {
                 }
                 //this.vel.mult(-1)
                 //grain.vel.mult(-1)
-                var momX = (this.vel.x*this.mass + grain.vel.x*grain.mass)/2
-                var momY = (this.vel.y*this.mass + grain.vel.y*grain.mass)/2
-                this.vel.x = momX/this.mass
-                this.vel.y = momY/this.mass
-                grain.vel.x = momX/grain.mass
-                grain.vel.y = momY/grain.mass
+                var momX = (this.vel.x*this.mass + grain.vel.x*grain.mass)/4
+                var momY = (this.vel.y*this.mass + grain.vel.y*grain.mass)/4
+                this.acc.x = -momX/this.mass
+                this.acc.y = -momY/this.mass
+                grain.acc.x = -momX/grain.mass
+                grain.acc.y = -momY/grain.mass
             }
         }
+
+		//Physics
+		this.vel.add(this.acc)
+
+		this.acc.mult(0)
+
+        this.pos.add(this.vel)
 
 		//Off screen
 		if (this.pos.x < 0 || this.pos.x > width) {
@@ -79,12 +80,19 @@ function setup() {
     cursor("none")
     GRAV = 0.5
     sand = []
-	for (i=0; i < 100; i++) {
-		sand.push( new Grain(random(width), random(0, height/3), random(5,10)) )
+    size = 5
+	for (i=0; i < 20; i++) {
+		sand.push( new Grain(random(width), random(0, height/3), size) )
 	}
+    prevMillis = 0
 }
 
 function draw() {
+    if (millis()-prevMillis > 125) {
+        sand.push(new Grain(width/2+random(-25,25), 30, size))
+        prevMillis = millis()
+    }
+
 	background(150)
 
 	for (grain of sand) {
@@ -98,5 +106,5 @@ function draw() {
 }
 
 function mousePressed() {
-    sand.push(new Grain(mouseX, mouseY, random(5,10)))
+    sand.push(new Grain(mouseX, mouseY, size))
 }
