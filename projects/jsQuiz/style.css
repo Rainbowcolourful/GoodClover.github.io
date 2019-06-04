@@ -1,0 +1,51 @@
+body {
+	background-color: darkgray;
+	font-family: "Comfortaa", cursive;
+	text-align: center;
+}
+
+h1 {
+	background-color: gray;
+	margin-left: 15%;
+	margin-right: 15%;
+	border-width: 5px;
+	border-radius: 7px;
+	text-align: center;
+}
+
+h2 {
+	background-color: gray;
+	margin-left: 25%;
+	margin-right: 25%;
+	border-width: 2px;
+	border-radius: 7px;
+	text-align: center;
+}
+
+a, input, select {
+    border-style: none;
+	border-width: 1px;
+	border-radius: 5px;
+	text-align: center;
+	text-decoration: none;
+	background-color: lightblue;
+	color: gray;
+	padding: 2px;
+	transition-duration: 650ms;
+	transition-timing-function: cubic-bezier(0.81, 0.32, 0.49, 0.59);
+}
+
+a:hover, input:hover, select:hover {
+	background-color: #919191;
+	color: lightblue;
+	padding: 3px;
+}
+
+canvas {
+	border-radius: 15px;
+	transition: 500ms;
+}
+
+canvas:hover {
+	border-radius: 5px;
+}
