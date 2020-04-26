@@ -1,0 +1,24 @@
+{
+    "options": {
+        "baseUrl": "GoodClover.github.io",
+        "breaks": false,
+        "gfm": true,
+        "headerIds": true,
+        "headerPrefix": "",
+        "highlight": null,
+        "langPrefix": "language-",
+        "mangle": true,
+        "pedantic": false,
+        "sanitizer": null,
+        "silent": false,
+        "smartLists": false,
+        "smartypants": false,
+        "xhtml": true
+    },
+    "conversions": [
+        {
+            "markdown": "./index.md",
+            "html": "./index.html"
+        }
+    ]
+}

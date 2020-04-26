@@ -1,0 +1,20 @@
+{
+  "name": "goodclover.github.io markdown builder",
+  "version": "1.0.0",
+  "description": "Markdown builder for GoodClover.github.io",
+  "main": "build.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GoodClover/GoodClover.github.io.git"
+  },
+  "author": "Oliver Simmons (GoodClover)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GoodClover/GoodClover.github.io/issues"
+  },
+  "homepage": "https://GoodClover.github.io",
+  "devDependencies": {
+    "marked": "^1.0.0"
+  },
+  "dependencies": {}
+}
