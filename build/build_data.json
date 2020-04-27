@@ -1,4 +1,15 @@
 {
+    "pages": [
+        "index"
+    ],
+    "default_meta": {
+        "Author": "",
+        "CSS": "master",
+        "Descriptiion": "",
+        "Keywords": "",
+        "Title": "",
+        "Viewport": "width=device-width, initial-scale=1.0"
+    },
     "options": {
         "baseUrl": "GoodClover.github.io",
         "breaks": false,
@@ -14,13 +25,5 @@
         "smartLists": false,
         "smartypants": false,
         "xhtml": true
-    },
-    "pages": [
-        {
-            "markdown": "./index.md",
-            "html": "./index.html",
-            "css": "./css/master.css",
-            "title": "Oliver Simmons' Page"
-        }
-    ]
+    }
 }
