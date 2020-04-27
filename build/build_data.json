@@ -15,10 +15,12 @@
         "smartypants": false,
         "xhtml": true
     },
-    "conversions": [
+    "pages": [
         {
             "markdown": "./index.md",
-            "html": "./index.html"
+            "html": "./index.html",
+            "css": "./css/master.css",
+            "title": "Oliver Simmons' Page"
         }
     ]
 }

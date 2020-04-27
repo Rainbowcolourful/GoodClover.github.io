@@ -15,7 +15,7 @@ marked.setOptions({
 var template = fs.readFileSync("./template.html", "utf8")
 
 // Compile the code
-for (var conversion of build_data.conversions) {
+for (var conversion of build_data.pages) {
     fs.readFile("../"+conversion.markdown, "utf8", (err, data) => {
         if (err) throw err;
 
@@ -23,7 +23,9 @@ for (var conversion of build_data.conversions) {
         data = marked(data);
 
         // Add tamplate data
-        data = template.replace("DATA", data)
+        data = template.replace("DATA_BODY", data);
+        data = data.replace("DATA_TITLE", conversion.title);
+        data = data.replace("DATA_CSS", conversion.css);
 
         // Write it to a file
         fs.writeFile("../"+conversion.html, data, (err) => {
