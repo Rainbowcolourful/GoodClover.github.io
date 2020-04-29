@@ -1,6 +1,7 @@
 {
     "pages": [
-        "index"
+        "index",
+        "Charlie"
     ],
     "default_meta": {
         "Author": "",
